@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+}
+.header {
+    background-color: rgb(233, 232, 232);
+    width: 100%;
+    height: 50px;
+    display: flex;
+}
+.headerTitle{
+    font-weight: bold;
+    margin-left: 20px;
+    line-height: 20px;
+    margin-top: 0;
+    padding-top: 15px;
+}
+.updated {
+    line-height: 20px;
+    padding-top: 15px;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: 20px;
+}
+.description {
+    width:  25%;
+    max-width: 100%;
+    margin: 0px auto;
+}
+.description p {
+    margin: 2px 0;
+    text-align: left;
+}
+
+
+/* タグリストテーブル */
+.tagListTable table {
+    border: 2px black solid;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin: 20px auto;
+}
+
+
+/* テーブル共通 */
+thead {
+    background-color: rgb(228, 228, 228)
+}
+th,td {
+    border: 1px black solid;
+    padding: 10px 10px;
+}
+.underlineNone {
+    border-bottom: none ;
+}
+.toplineNone {
+    border-top: none;
+}
+.leftlineNone {
+    border-left: none;
+}
+.rightlineNone {
+    border-right: none;
+}
+.lineNone {
+    border: none;
+}
+
+
+/* リセットボタン */
+.resetBtn {
+    text-align: center;
+}
+.resetBtn button {
+    padding: 5px;
+}
+
+
+/* 結果テーブル */
+.resultTable table {
+    border: 2px black solid;
+    border-collapse: collapse;
+    margin: 20px auto;
+} 
+.resultTable img {
+    width: 50px;
+    height: 50px;
+    padding: 0px 0px;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.resultTable td {
+    padding: 0 10px;
+}
+.resultTable p {
+    font-size: 15px;
+}
+.rarity6 {
+    border : 3px solid rgb(242, 166, 13);
+}
+.rarity5 {
+    border : 3px solid rgb(242, 238, 13);
+}
+.rarity4 {
+    border : 3px solid rgb(161, 161, 161);
+}
+.rarity1 {
+    border : 3px solid rgb(48, 48, 48);
+}
+
+
+/* フッター */
+.footer {
+    margin-top: 30px;
+    width: 100%;
+    background-color:  rgb(233, 232, 232);
+
+}
+.footer p {
+    margin: 0px 20px;
+}
+.footer h3 {
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    padding-top: 10px;
+}
+
+/* レスポンシブ */
+@media screen and (max-width:480px) {
+
+    .description {
+        width:  80%;
+        margin: 0px auto;
+    }
+
+}

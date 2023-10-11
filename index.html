@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アークナイツ公開求人自作ツール</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="header">
+        <p class="headerTitle">アークナイツ公開求人ツール</p>
+        <p class="updated">2023年7月版</p>
+    </div>
+
+    <div class="description">
+        <h3>表示ルール</h3>
+        <p>★6  ：  確定タグのみ表示</p>
+        <p>★5  ：  確定タグのみ表示</p>
+        <p>★4  ：  ★3を除外して絞り込み可能なタグを表示</p>
+        <p>★3  ：  表示しない</p>
+        <p>★2  ：  表示しない</p>
+        <p>★1  ：  ロボットタグ選択時に絞り込み可能なタグを表示</p>
+    </div>
+
+    <div class="tagListTable">
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="4">タグ一覧</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="underlineNone">職種</td>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "先鋒" onclick="clickTagBtn(this)">先鋒</td></label>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "前衛" onclick="clickTagBtn(this)">前衛</td></label>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "重装" onclick="clickTagBtn(this)">重装</td></label>
+                </tr>
+                <tr>
+                    <td class="underlineNone toplineNone"></td>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "狙撃" onclick="clickTagBtn(this)">狙撃</td></label>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "術師" onclick="clickTagBtn(this)">術師</td></label>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "医療" onclick="clickTagBtn(this)">医療</td></label>
+                </tr>
+                <tr>
+                    <td class="toplineNone"></td>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "補助" onclick="clickTagBtn(this)">補助</td></label>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "特殊" onclick="clickTagBtn(this)">特殊</td></label>
+                    <td class="lineNone"></td>
+                </tr>
+                <tr>
+                    <td>位置</td>
+                    <td class="leftlineNone rightlineNone"><label><input class="checks" type="checkbox" value = "近距離" onclick="clickTagBtn(this)">近距離</td></label>
+                    <td class="leftlineNone rightlineNone"><label><input class="checks" type="checkbox" value = "遠距離" onclick="clickTagBtn(this)">遠距離</td></label>
+                    <td class="leftlineNone rightlineNone"></td>
+                </tr>
+                <tr>
+                    <td class="underlineNone">特徴</td>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "火力" onclick="clickTagBtn(this)">火力</td></label>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "生存" onclick="clickTagBtn(this)">生存</td></label>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "防御" onclick="clickTagBtn(this)">防御</td></label>
+                </tr>
+                <tr>
+                    <td class="underlineNone toplineNone"></td>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "治療" onclick="clickTagBtn(this)">治療</td></label>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "範囲攻撃" onclick="clickTagBtn(this)">範囲攻撃</td></label>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "減速" onclick="clickTagBtn(this)">減速</td></label>
+                </tr>
+                <tr>
+                    <td class="underlineNone toplineNone"></td>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "COST回復" onclick="clickTagBtn(this)">COST回復</td></label>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "支援" onclick="clickTagBtn(this)">支援</td></label>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "弱化" onclick="clickTagBtn(this)">弱化</td></label>
+                </tr>
+                <tr>
+                    <td class="underlineNone toplineNone"></td>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "強制移動" onclick="clickTagBtn(this)">強制移動</td></label>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "高速再配置" onclick="clickTagBtn(this)">高速再配置</td></label>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "爆発力" onclick="clickTagBtn(this)">爆発力</td></label>
+                </tr>
+                <tr>
+                    <td class="underlineNone toplineNone"></td>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "牽制" onclick="clickTagBtn(this)">牽制</td></label>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "召喚" onclick="clickTagBtn(this)">召喚</td></label>
+                    <td class="lineNone"><label><input class="checks" type="checkbox" value = "ロボット" onclick="clickTagBtn(this)">ロボット</td></label>
+                </tr>
+                <tr>
+                    <td>レアタグ</td>
+                    <td class="leftlineNone rightlineNone"><label><input class="checks" type="checkbox" value = "エリート" onclick="clickTagBtn(this)">エリート</td></label>
+                    <td class="leftlineNone rightlineNone"><label><input class="checks" type="checkbox" value = "上級エリート" onclick="clickTagBtn(this)">上級エリート</td></label>
+                    <td class="leftlineNone rightlineNone"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="resetBtn">
+        <button type="button" onclick="ResetTag()">リセット</button>
+    </div>
+
+    <div class="resultTable">
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">結果</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ★6 -->
+                <tr id="Chen_Rw">
+                    <td class="lineNone"><img src="./image/rarity6/Chen.jpg" alt="Chen" id="Chen" class="operatorImg rarity6"></td>
+                    <td class="lineNone"><p id="Chen_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="SilverAsh_Rw">
+                    <td class="lineNone"><img src="./image/rarity6/SilverAsh.jpg" alt="SilverAsh" id="SilverAsh" class="operatorImg rarity6"></td>
+                    <td class="lineNone"><p id="SilverAsh_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Hoshiguma_Rw">
+                    <td class="lineNone"><img src="./image/rarity6/Hoshiguma.jpg" alt="Hoshiguma" id="Hoshiguma" class="operatorImg rarity6"></td>
+                    <td class="lineNone"><p id="Hoshiguma_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Saria_Rw">
+                    <td class="lineNone"><img src="./image/rarity6/Saria.jpg" alt="Saria" id="Saria" class="operatorImg rarity6"></td>
+                    <td class="lineNone"><p id="Saria_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Rosa_Rw">
+                    <td class="lineNone"><img src="./image/rarity6/Rosa.jpg" alt="Rosa" id="Rosa" class="operatorImg rarity6"></td>
+                    <td class="lineNone"><p id="Rosa_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Ifrit_Rw">
+                    <td class="lineNone"><img src="./image/rarity6/Ifrit.jpg" alt="Ifrit" id="Ifrit" class="operatorImg rarity6"></td>
+                    <td class="lineNone"><p id="Ifrit_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Ceobe_Rw">
+                    <td class="lineNone"><img src="./image/rarity6/Ceobe.jpg" alt="Ceobe" id="Ceobe" class="operatorImg rarity6"></td>
+                    <td class="lineNone"><p id="Ceobe_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Mostima_Rw">
+                    <td class="lineNone"><img src="./image/rarity6/Mostima.jpg" alt="Mostima" id="Mostima" class="operatorImg rarity6"></td>
+                    <td class="lineNone"><p id="Mostima_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Magallan_Rw">
+                    <td class="lineNone"><img src="./image/rarity6/Magallan.jpg" alt="Magallan" id="Magallan" class="operatorImg rarity6"></td>
+                    <td class="lineNone"><p id="Magallan_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Phantom_Rw">
+                    <td class="lineNone"><img src="./image/rarity6/Phantom.jpg" alt="Phantom" id="Phantom" class="operatorImg rarity6"></td>
+                    <td class="lineNone"><p id="Phantom_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Aak_Rw">
+                    <td class="lineNone"><img src="./image/rarity6/Aak.jpg" alt="Aak" id="Aak" class="operatorImg rarity6"></td>
+                    <td class="lineNone"><p id="Aak_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Weedy_Rw">
+                    <td class="lineNone"><img src="./image/rarity6/Weedy.jpg" alt="Weedy" id="Weedy" class="operatorImg rarity6"></td>
+                    <td class="lineNone"><p id="Weedy_Tag">タグを表示</p></td>
+                </tr>
+
+                <!-- ★5 -->
+                <tr id="Reed_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/Reed.jpg" alt="Reed" id="Reed" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="Reed_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="Texas_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/Texas.jpg" alt="Texas" id="Texas" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="Texas_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="Indra_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/Indra.jpg" alt="Indra" id="Indra" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="Indra_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="Swire_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/Swire.jpg" alt="Swire" id="Swire" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="Swire_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="Astesia_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/Astesia.jpg" alt="Astesia" id="Astesia" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="Astesia_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="Croissant_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/Croissant.jpg" alt="Croissant" id="Croissant" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="Croissant_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="Vulcan_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/Vulcan.jpg" alt="Vulcan" id="Vulcan" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="Vulcan_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="Firewatch_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/Firewatch.jpg" alt="Firewatch" id="Firewatch" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="Firewatch_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="Nightmare_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/Nightmare.jpg" alt="Nightmare" id="Nightmare" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="Nightmare_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="Leonhardt_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/Leonhardt.jpg" alt="Leonhardt" id="Leonhardt" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="Leonhardt_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="Mayer_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/Mayer.jpg" alt="Mayer" id="Mayer" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="Mayer_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="Glaucus_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/Glaucus.jpg" alt="Glaucus" id="Glaucus" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="Glaucus_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="Istina_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/Istina.jpg" alt="Istina" id="Istina" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="Istina_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="Tsukinogi_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/Tsukinogi.jpg" alt="Tsukinogi" id="Tsukinogi" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="Tsukinogi_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="ProjektRed_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/ProjektRed.jpg" alt="ProjektRed" id="ProjektRed" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="ProjektRed_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="WaaiFu_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/WaaiFu.jpg" alt="WaaiFu" id="WaaiFu" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="WaaiFu_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="Manticore_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/Manticore.jpg" alt="Manticore" id="Manticore" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="Manticore_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="Cliffheart_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/Cliffheart.jpg" alt="Cliffheart" id="Cliffheart" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="Cliffheart_Tag">タグを表示</p></td>
+                </tr> 
+                <tr id="FEater_Rw">
+                    <td class="lineNone"><img src="./image/rarity5/FEater.jpg" alt="FEater" id="FEater" class="operatorImg rarity5"></td>
+                    <td class="lineNone"><p id="FEater_Tag">タグを表示</p></td>
+                </tr>
+
+                <!-- ★4 -->
+                <tr id="Myrtle_Rw">
+                    <td class="lineNone"><img src="./image/rarity4/Myrtle.jpg" alt="Myrtle" id="Myrtle" class="operatorImg rarity4"></td>
+                    <td class="lineNone"><p id="Myrtle_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Frostleaf_Rw">
+                    <td class="lineNone"><img src="./image/rarity4/Frostleaf.jpg" alt="Frostleaf" id="Frostleaf" class="operatorImg rarity4"></td>
+                    <td class="lineNone"><p id="Frostleaf_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Dobermann_Rw">
+                    <td class="lineNone"><img src="./image/rarity4/Dobermann.jpg" alt="Dobermann" id="Dobermann" class="operatorImg rarity4"></td>
+                    <td class="lineNone"><p id="Dobermann_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Cutter_Rw">
+                    <td class="lineNone"><img src="./image/rarity4/Cutter.jpg" alt="Cutter" id="Cutter" class="operatorImg rarity4"></td>
+                    <td class="lineNone"><p id="Cutter_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Jessica_Rw">
+                    <td class="lineNone"><img src="./image/rarity4/Jessica.jpg" alt="Jessica" id="Jessica" class="operatorImg rarity4"></td>
+                    <td class="lineNone"><p id="Jessica_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Shirayuki_Rw">
+                    <td class="lineNone"><img src="./image/rarity4/Shirayuki.jpg" alt="Shirayuki" id="Shirayuki" class="operatorImg rarity4"></td>
+                    <td class="lineNone"><p id="Shirayuki_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="May_Rw">
+                    <td class="lineNone"><img src="./image/rarity4/May.jpg" alt="May" id="May" class="operatorImg rarity4"></td>
+                    <td class="lineNone"><p id="May_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Ambriel_Rw">
+                    <td class="lineNone"><img src="./image/rarity4/Ambriel.jpg" alt="Ambriel" id="Ambriel" class="operatorImg rarity4"></td>
+                    <td class="lineNone"><p id="Ambriel_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Meteor_Rw">
+                    <td class="lineNone"><img src="./image/rarity4/Meteor.jpg" alt="Meteor" id="Meteor" class="operatorImg rarity4"></td>
+                    <td class="lineNone"><p id="Meteor_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Greyy_Rw">
+                    <td class="lineNone"><img src="./image/rarity4/Greyy.jpg" alt="Greyy" id="Greyy" class="operatorImg rarity4"></td>
+                    <td class="lineNone"><p id="Greyy_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Haze_Rw">
+                    <td class="lineNone"><img src="./image/rarity4/Haze.jpg" alt="Haze" id="Haze" class="operatorImg rarity4"></td>
+                    <td class="lineNone"><p id="Haze_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Purestream_Rw">
+                    <td class="lineNone"><img src="./image/rarity4/Purestream.jpg" alt="Purestream" id="Purestream" class="operatorImg rarity4"></td>
+                    <td class="lineNone"><p id="Purestream_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Podenco_Rw">
+                    <td class="lineNone"><img src="./image/rarity4/Podenco.jpg" alt="Podenco" id="Podenco" class="operatorImg rarity4"></td>
+                    <td class="lineNone"><p id="Podenco_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Gravel_Rw">
+                    <td class="lineNone"><img src="./image/rarity4/Gravel.jpg" alt="Gravel" id="Gravel" class="operatorImg rarity4"></td>
+                    <td class="lineNone"><p id="Gravel_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Rope_Rw">
+                    <td class="lineNone"><img src="./image/rarity4/Rope.jpg" alt="Rope" id="Rope" class="operatorImg rarity4"></td>
+                    <td class="lineNone"><p id="Rope_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Shaw_Rw">
+                    <td class="lineNone"><img src="./image/rarity4/Shaw.jpg" alt="Shaw" id="Shaw" class="operatorImg rarity4"></td>
+                    <td class="lineNone"><p id="Shaw_Tag">タグを表示</p></td>
+                </tr>
+
+                <!-- ★1 -->
+                <tr id="Castle3_Rw">
+                    <td class="lineNone"><img src="./image/rarity1/Castle3.jpg" alt="Castle3" id="Castle3" class="operatorImg rarity1"></td>
+                    <td class="lineNone"><p id="Castle3_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="JusticeKnight_Rw">
+                    <td class="lineNone"><img src="./image/rarity1/JusticeKnight.jpg" alt="JusticeKnight" id="JusticeKnight" class="operatorImg rarity1"></td>
+                    <td class="lineNone"><p id="JusticeKnight_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="Lancet2_Rw">
+                    <td class="lineNone"><img src="./image/rarity1/Lancet2.jpg" alt="Lancet2" id="Lancet2" class="operatorImg rarity1"></td>
+                    <td class="lineNone"><p id="Lancet2_Tag">タグを表示</p></td>
+                </tr>
+                <tr id="THRMEX_Rw">
+                    <td class="lineNone"><img src="./image/rarity1/THRMEX.jpg" alt="THRMEX" id="THRMEX" class="operatorImg rarity1"></td>
+                    <td class="lineNone"><p id="THRMEX_Tag">タグを表示</p></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+        
+        <h3>引用・情報元</h3>
+        <p>アークナイツ攻略Wiki：<a href="https://arknights.wikiru.jp/">https://arknights.wikiru.jp/</a></p>
+        <h3>免責事項</h3>
+        <p>※当サイトのご利用によって生じたいかなるトラブル、損失、損害についても、当サイト作成者は一切の責任を負いません。当サイトで提供する情報の最新性、正確性、有用性において、いかなる保証も致しません。</p>
+    </div>
+
+    <script src="./operators.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
